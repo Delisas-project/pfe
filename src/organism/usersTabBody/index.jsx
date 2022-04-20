@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
 import UserTabData from "../../molecule/userTabData";
+import DeleteModel from "../../molecule/deleteModel";
 
 const tHead = [
 	"PERSONNEL ID",
@@ -64,15 +65,25 @@ const data = [
 ];
 
 function UsersTabBody() {
+	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	return (
-		<table className='usersTab'>
-			<TableHead head={tHead} />
-			<tbody>
-				{data.map((user, i) => (
-					<UserTabData data={user} key={i} />
-				))}
-			</tbody>
-		</table>
+		<React.Fragment>
+			<table className='usersTab'>
+				<TableHead head={tHead} />
+				<tbody>
+					{data.map((user, i) => (
+						<UserTabData
+							data={user}
+							key={i}
+							setshowDeleteModel={setshowDeleteModel}
+						/>
+					))}
+				</tbody>
+			</table>
+			{showDeleteModel && (
+				<DeleteModel setshowDeleteModel={setshowDeleteModel} />
+			)}
+		</React.Fragment>
 	);
 }
 

@@ -52,7 +52,7 @@ function AddNewUser({ setshowAddModel }) {
           <div>
             <label className="labelAdd">Hub</label>
             <select className="inputAdd" name="cars" id="cars">
-              <option value="ChoisirRole">Choisir Role</option>
+              <option value="ChoisirRole">Choisir Hub</option>
               <option value="Gérant">Gérant</option>
               <option value="livreur">livreur</option>
               <option value="Commercial">Commercial</option>

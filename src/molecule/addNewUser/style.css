@@ -13,7 +13,8 @@
   background-color: rgb(255, 255, 255);
   padding: 20px;
   width: 700px;
-  height: 520px;
+  height: 530px;
+  margin-top: -50px;
 }
 .parent {
   display: grid;
@@ -31,10 +32,10 @@
   border-radius: 3px;
 }
 .labelAdd {
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 13px;
-  color: gray;
+  color: #222222;
+  font-weight: 900;
+  font-size: 12px;
+  padding-left: 20px;
 }
 .parentBtn {
   display: flex;
@@ -43,10 +44,11 @@
 
 .AddBtn {
   width: 100px;
-  height: 30px;
+  height: 37px;
   margin: 5px;
   color: rgb(75, 75, 75);
   cursor: pointer;
+  border-radius: 3px;
 }
 
 #ajouter {

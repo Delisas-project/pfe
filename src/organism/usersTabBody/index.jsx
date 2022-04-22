@@ -3,6 +3,7 @@ import "./style.css";
 import TableHead from "../../atome/tableHead";
 import UserTabData from "../../molecule/userTabData";
 import DeleteModel from "../../molecule/deleteModel";
+import UpdateUser from "../../molecule/updateUser";
 
 const tHead = [
   "PERSONNEL ID",
@@ -81,6 +82,7 @@ const data = [
 
 function UsersTabBody() {
   const [showDeleteModel, setshowDeleteModel] = useState(false);
+  const [updateUserModel, setupdateUserModel] = useState(false);
   return (
     <React.Fragment>
       <table className="usersTab">
@@ -91,12 +93,16 @@ function UsersTabBody() {
               data={user}
               key={i}
               setshowDeleteModel={setshowDeleteModel}
+              setupdateUserModel={setupdateUserModel}
             />
           ))}
         </tbody>
       </table>
       {showDeleteModel && (
         <DeleteModel setshowDeleteModel={setshowDeleteModel} />
+      )}
+      {updateUserModel && (
+        <UpdateUser setupdateUserModel={setupdateUserModel} />
       )}
     </React.Fragment>
   );

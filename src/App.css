@@ -9,6 +9,11 @@
 	align-items: center;
 	justify-content: start;
 }
+.flexEnd {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
 
 .flexBetween {
 	display: flex;

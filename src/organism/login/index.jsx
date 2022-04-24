@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import "./style.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,9 @@ const Login = () => {
 
  
   return (
+    
     <div className="parent clearfix">
+     
       <div className="bg-illustration">
         <img src="https://cdn.discordapp.com/attachments/902189923380121670/966515718042583080/logooooo.png" alt="logo" />
       </div>
@@ -38,9 +40,15 @@ const Login = () => {
           <div className="login-form">
             <form action="">
               <h5>Email</h5>
-              <input type="email" placeholder="Email "  />
+              <input type="email" placeholder="Email " value={signin.username}
+					onChange={(e) =>
+						setSignin({ ...signin, username: e.target.value })
+					} />
               <h5>password</h5>
-              <input type="password" placeholder="Password"  />
+              <input type="password" placeholder="Password" value={signin.password}
+					onChange={(e) =>
+						setSignin({ ...signin, password: e.target.value })
+					} />
 
               <div className="remember-form">
                 <input type="checkbox" />
@@ -51,9 +59,9 @@ const Login = () => {
                 {/* <a >Forgot Password ?</a> */}
               </div>
 
-              <button className="login" type="submit" >
+              <button className="login" type="submit" onClick={signinFN}  >
                 LOG-IN
-              </button>
+              </button>{signin.status}{" "}
               <div className="footer-social-icons">
                 <h4 className="_14">Follow us on</h4>
                 <ul className="social-icons">
@@ -75,6 +83,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+    
+
     </div>
   );
 };

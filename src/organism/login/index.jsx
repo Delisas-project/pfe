@@ -4,30 +4,31 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-
   const [signin, setSignin] = useState({
-		username: "",
-		password: "",
-	});
-	const navigate = useNavigate();
-	const signinFN = () => {
-		if (signin.username !== "admin@gmail.com") {
-			setSignin({ ...signin, status: "enter your email" });
-		} else if (signin.password.length === 0)
-			setSignin({ ...signin, status: "enter a password" });
-		else if (signin.password !== "admin")
-			setSignin({ ...signin, status: "password  wrong" });
-		else {
-			console.log("jawik behii");
-			navigate("/BackOfficeInterface ");
-		}
-	};
+    username: "",
+    password: "",
+  });
+  // const navigate = useNavigate();
+  const signinFN = () => {
+    if (signin.username !== "admin@gmail.com") {
+      setSignin({ ...signin, status: "enter your email" });
+    } else if (signin.password.length === 0)
+      setSignin({ ...signin, status: "enter a password" });
+    else if (signin.password !== "admin")
+      setSignin({ ...signin, status: "password  wrong" });
+    else {
+      console.log("jawik behii");
+      // navigate("/BackOfficeInterface ");
+    }
+  };
 
- 
   return (
     <div className="parent clearfix">
       <div className="bg-illustration">
-        <img src="https://cdn.discordapp.com/attachments/902189923380121670/966515718042583080/logooooo.png" alt="logo" />
+        <img
+          src="https://cdn.discordapp.com/attachments/902189923380121670/966515718042583080/logooooo.png"
+          alt="logo"
+        />
       </div>
       <div className="login">
         <div className="container">
@@ -38,20 +39,23 @@ const Login = () => {
           <div className="login-form">
             <form action="">
               <h5>Email</h5>
-              <input type="email" placeholder="Email "  />
+              <input type="email" placeholder="Email " />
               <h5>password</h5>
-              <input type="password" placeholder="Password"  />
+              <input type="password" placeholder="Password" />
 
               <div className="remember-form">
                 <input type="checkbox" />
-                <span> <strong>Remember me</strong></span>
+                <span>
+                  {" "}
+                  <strong>Remember me</strong>
+                </span>
               </div>
               <div className="forget-pass">
                 <br />
                 {/* <a >Forgot Password ?</a> */}
               </div>
 
-              <button className="login" type="submit" >
+              <button className="login" type="submit">
                 LOG-IN
               </button>
               <div className="footer-social-icons">

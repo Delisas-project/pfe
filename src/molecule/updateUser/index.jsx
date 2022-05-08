@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function UpdateUser({ setupdateUserModel }) {
+function UpdateUser({ setupdateUserModel, data }) {
   return (
     <div className="updateModel flex">
       <div className="modelll">
@@ -30,7 +30,7 @@ function UpdateUser({ setupdateUserModel }) {
         <div className="parent">
           <div>
             <label className="labelUpdate">Personne ID</label>
-            <input placeholder="3" className="inputAdd" type="text" />
+            <input placeholder="6" className="inputAdd" type="text" />
           </div>
           <div>
             <label className="labelUpdate">Nom du Personnel</label>
@@ -94,7 +94,8 @@ function UpdateUser({ setupdateUserModel }) {
             onClick={() => {
               setupdateUserModel(false);
             }}
-            className="updateBtn" id="annuler"
+            className="updateBtn"
+            id="annuler"
           >
             Annuler
           </button>

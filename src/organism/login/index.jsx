@@ -32,7 +32,7 @@ const Login = () => {
         <img src="https://cdn.discordapp.com/attachments/902189923380121670/966515718042583080/logooooo.png" alt="logo" />
       </div>
       <div className="login">
-        <div className="container">
+        <div className="container1">
           <h1>Welcome to Delisas !</h1>
           <br />
           <h3>please sigin-in to your account </h3>

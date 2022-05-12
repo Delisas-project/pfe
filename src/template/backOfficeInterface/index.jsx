@@ -9,9 +9,7 @@ function BackOfficeInterface() {
 	return (
 		<div className='backOfficeInterface '>
 			<SideBar />
-			<div className="login">
-				
-			</div>
+			
 			<div className='content'>
 				<Navbar />
 				<UsersManager />

@@ -15,7 +15,6 @@ function BackOfficeInterface() {
 			<div className='content'>
 				<Navbar />
 				<UsersManager />
-				{/* <login/> */}
 			</div>
 		</div>
 	);

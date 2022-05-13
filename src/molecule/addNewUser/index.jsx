@@ -36,7 +36,8 @@ function AddNewUser({ setshowAddModel }) {
       .post("/api/gestionPersonnel/add", user)
 
       .then(() => {
-        // fetchdata();
+        window.location.reload();
+        setshowAddModel(false);
         console.log("user added successfully !");
       })
       .catch((err) => console.log(err));

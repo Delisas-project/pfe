@@ -2,6 +2,10 @@ import React from "react";
 import "./style.css";
 
 function DeleteModel({ setshowDeleteModel, remove, idRemove }) {
+  const deleteAndClose = () => {
+    remove(idRemove);
+    setshowDeleteModel(false);
+  };
   return (
     <div className="modelBackGround flex">
       <div className="deleteModel">
@@ -16,7 +20,7 @@ function DeleteModel({ setshowDeleteModel, remove, idRemove }) {
           <button
             className="delete"
             onClick={() => {
-              remove(idRemove);
+              deleteAndClose();
             }}
           >
             Supprimer

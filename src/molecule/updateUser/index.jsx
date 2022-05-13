@@ -1,7 +1,91 @@
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
+import axios from "axios";
 import "./style.css";
 
 function UpdateUser({ setupdateUserModel, data }) {
+  const [dataOfItemToUpdate, setdataOfItemToUpdate] = useState({
+    id: "",
+    cin: "",
+    nom: "",
+    prenom: "",
+    role: "",
+    tel_personnel: "",
+    mail: "",
+    permis: "",
+    hub: "",
+    matricule_veh: "",
+    carte_grise: "",
+    photo: "",
+  });
+  const [id, setid] = useState(dataOfItemToUpdate.id);
+  const [cin, setcin] = useState(dataOfItemToUpdate.cin);
+  const [nom, setnom] = useState(dataOfItemToUpdate.nom);
+  const [prenom, setprenom] = useState(dataOfItemToUpdate.prenom);
+  const [role, setrole] = useState(dataOfItemToUpdate.role);
+  const [tel_personnel, settel_personnel] = useState(
+    dataOfItemToUpdate.tel_personnel
+  );
+  const [mail, setmail] = useState(dataOfItemToUpdate.mail);
+  const [permis, setpermis] = useState(dataOfItemToUpdate.permis);
+  const [hub, sethub] = useState(dataOfItemToUpdate.hub);
+  const [matricule_veh, setmatricule_veh] = useState(
+    dataOfItemToUpdate.matricule_veh
+  );
+  const [carte_grise, setcarte_grise] = useState(
+    dataOfItemToUpdate.carte_grise
+  );
+
+  const getDataOfUserToUpdate = () => {
+    var idFromLocalStorage = localStorage.getItem("idOfUserToUpdate");
+    console.log(idFromLocalStorage);
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].id === idFromLocalStorage) {
+        setdataOfItemToUpdate(data[i]);
+        setid(data[i].id);
+        setcin(data[i].cin);
+        setmail(data[i].mail);
+        setnom(data[i].nom);
+        sethub(data[i].hub);
+        setrole(data[i].role);
+        setpermis(data[i].permis);
+        setprenom(data[i].prenom);
+        setcarte_grise(data[i].carte_grise);
+        setmatricule_veh(data[i].matricule_veh);
+        settel_personnel(data[i].telsettel_personnel);
+      }
+    }
+  };
+
+  const update = () => {
+    let dataUpdate = {
+      id: id,
+      cin: cin,
+      nom: nom,
+      prenom: prenom,
+      role: role,
+      tel_personnel: tel_personnel,
+      mail: mail,
+      permis: permis,
+      hub: hub,
+      matricule_veh: matricule_veh,
+      carte_grise: carte_grise,
+    };
+    axios
+      .put(
+        `/api/gestionPersonnel/updateOne/${dataOfItemToUpdate._id}`,
+        dataUpdate
+      )
+      .then(() => {
+        window.location.reload();
+        console.log(dataUpdate);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useLayoutEffect(() => {
+    getDataOfUserToUpdate();
+  }, []);
+
   return (
     <div className="updateModel flex">
       <div className="modelll">
@@ -30,35 +114,66 @@ function UpdateUser({ setupdateUserModel, data }) {
         <div className="parent">
           <div>
             <label className="labelUpdate">Personne ID</label>
-            <input placeholder="6" className="inputAdd" type="text" />
+            <input
+              defaultValue={dataOfItemToUpdate.id}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setid(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Nom du Personnel</label>
-            <input placeholder="BenOthmen" className="inputAdd" type="text" />
+            <input
+              defaultValue={dataOfItemToUpdate.nom}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setnom(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Prénom du Personnel</label>
-            <input placeholder="Ichrak" className="inputAdd" type="text" />
+            <input
+              defaultValue={dataOfItemToUpdate.prenom}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setprenom(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Numéro CIN</label>
-            <input placeholder="44625645" className="inputAdd" type="text" />
+            <input
+              defaultValue={dataOfItemToUpdate.cin}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setcin(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Numéro du téléphone</label>
-            <input placeholder="27542652" className="inputAdd" type="text" />
+            <input
+              defaultValue={dataOfItemToUpdate.tel_personnel}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => settel_personnel(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Adresse E-mail</label>
             <input
-              placeholder="ichrakbenothmen@gmail.com"
+              defaultValue={dataOfItemToUpdate.mail}
               className="inputAdd"
               type="text"
+              onChange={(e) => setmail(e.target.value)}
             />
           </div>
           <div>
             <label className="labelUpdate">Role Personnel</label>
-            <select className="inputAdd" name="cars" id="cars">
+            <select
+              className="inputAdd"
+              name="cars"
+              id="cars"
+              onChange={(e) => setrole(e.target.value)}
+            >
               <option value="ChoisirRole">Choisir Role</option>
               <option value="Gérant">Gérant</option>
               <option value="livreur">livreur</option>
@@ -67,19 +182,39 @@ function UpdateUser({ setupdateUserModel, data }) {
             </select>
           </div>
           <div>
-            <label className="labelUpdate">Permis</label>
-            <input className="inputAdd" type="text" />
+            <label type="text" className="labelUpdate">
+              Permis
+            </label>
+            <input
+              defaultValue={dataOfItemToUpdate.permis}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setpermis(e.target.value)}
+            />
           </div>
           <div>
-            <label className="labelUpdate">Matricule Vehicule</label>
-            <input className="inputAdd" type="text" />
+            <label type="text" className="labelUpdate">
+              Matricule Vehicule
+            </label>
+            <input
+              defaultValue={dataOfItemToUpdate.matricule_veh}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setmatricule_veh(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Carte Grise</label>
-            <input className="inputAdd" type="text" />
+            <input
+              defaultValue={dataOfItemToUpdate.carte_grise}
+              className="inputAdd"
+              type="text"
+              onChange={(e) => setcarte_grise(e.target.value)}
+            />
           </div>
           <div>
             <label className="labelUpdate">Hub</label>
+            onChange={(e) => sethub(e.target.value)}
             <select className="inputAdd" name="cars" id="cars">
               <option value="ChoisirRole">Choisir Hub</option>
               <option value="Gérant">Gérant</option>
@@ -99,7 +234,7 @@ function UpdateUser({ setupdateUserModel, data }) {
           >
             Annuler
           </button>
-          <button className="AddBtn" id="update">
+          <button className="AddBtn" id="update" onClick={update}>
             Modifier
           </button>
         </div>

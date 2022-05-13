@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import Text from "../../atome/text";
 import Icon from "../../atome/icon";
@@ -10,16 +10,15 @@ function UserTabData({
   setupdateUserModel,
   idOfItemToDelete,
 }) {
-  const [dataOfItemToUpdate, setdataOfItemToUpdate] = useState(null);
-
   const setTwoStatesDelete = () => {
     setshowDeleteModel(true);
     idOfItemToDelete(data._id);
   };
   const setTwoStatesUpdate = () => {
     setupdateUserModel(true);
-    setdataOfItemToUpdate(data);
     console.log(data);
+    var idd = data.id;
+    localStorage.setItem("idOfUserToUpdate", idd);
   };
   return (
     <tr className="dataRow">

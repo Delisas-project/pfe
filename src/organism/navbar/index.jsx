@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+// import { useHistory } from "react-router-dom";
 import Icon from "../../atome/icon";
 import Text from "../../atome/text";
 import Image from "../../atome/image";
@@ -20,6 +21,11 @@ const rigthIcons = [
 ];
 
 function Navbar() {
+	// let history = useHistory();
+
+	// function handleClick(path) {
+	// 	history.push(path);
+	// }
 	return (
 		<div className='navbar'>
 			<div className='leftIcons flex'>

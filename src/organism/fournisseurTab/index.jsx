@@ -15,7 +15,7 @@ const tHead = [
 	"ACTION",
 ];
 
-function UsersTabBody() {
+function FournisseurTabBody() {
 	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	const [updateUserModel, setupdateUserModel] = useState(false);
 	const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
@@ -23,7 +23,7 @@ function UsersTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionPersonnel/findAll")
+			.get("/api/gestionFournisseur/findAll")
 			.then(({ data }) => {
 				setusersGesPersonnel(data);
 			})
@@ -32,7 +32,7 @@ function UsersTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionPersonnel/deleteOne/${id}`)
+			.delete(`/api/gestionFournisseur/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -75,11 +75,11 @@ function UsersTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
-					reqData={"Personnel"}
+					reqData={"Fournisseur"}
 				/>
 			)}
 		</React.Fragment>
 	);
 }
 
-export default UsersTabBody;
+export default FournisseurTabBody;

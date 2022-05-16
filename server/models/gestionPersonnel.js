@@ -7,7 +7,7 @@ const gestionPersonnel = mongoose.Schema(
     nom: String,
     prenom: String,
     role: String,
-    tel_personnel: Number,
+    tel: Number,
     mail: String,
     permis: String,
     matricule_veh: String,

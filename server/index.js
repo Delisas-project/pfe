@@ -3,17 +3,17 @@ var cors = require("cors");
 const mongoose = require("mongoose");
 const port = 5000;
 const db = {
-  database:
-    // "mongodb+srv://root:root@kidkod.xmqil.mongodb.net/kidkok?retryWrites=true&w=majority" ||
-    "mongodb://localhost/pfeWael",
-  secret: "mysecret",
+	database:
+		// "mongodb+srv://root:root@kidkod.xmqil.mongodb.net/kidkok?retryWrites=true&w=majority" ||
+		"mongodb://localhost/pfeWael",
+	secret: "mysecret",
 };
 
 /******************** Mongoose ********************/
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(db.database)
-  .then((res) => console.log("mongoose connected !"));
+	.connect(db.database)
+	.then((res) => console.log("mongoose connected !"));
 
 /******************** Middleware ********************/
 let app = express();
@@ -23,9 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, sameSite: true }));
 
 const gestionPersonnel = require("./routers/gestionPersonnel");
+const gestionFournisseur = require("./routers/gestionFournisseur");
 
 app.use("/api/gestionPersonnel", gestionPersonnel);
+app.use("/api/gestionFournisseur", gestionFournisseur);
 
 app.listen(port, () => {
-  console.log(`listening on port http://localhost:${port} !`);
+	console.log(`listening on port http://localhost:${port} !`);
 });

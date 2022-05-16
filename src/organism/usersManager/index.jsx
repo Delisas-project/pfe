@@ -16,11 +16,17 @@ function UsersManager() {
 					<GestionPersonnel
 						setshowAddModel={setshowAddModel}
 						text={"Gestion personnel"}
+						role={"personnel"}
 					/>
 					<UsersTabBody />
 				</div>
 			</div>
-			{showAddModel && <AddNewUser setshowAddModel={setshowAddModel} />}
+			{showAddModel && (
+				<AddNewUser
+					setshowAddModel={setshowAddModel}
+					data={"Personnel"}
+				/>
+			)}
 		</React.Fragment>
 	);
 }

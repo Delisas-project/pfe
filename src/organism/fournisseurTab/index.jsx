@@ -23,7 +23,7 @@ function FournisseurTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionPersonnel/findAll")
+			.get("/api/gestionFournisseur/findAll")
 			.then(({ data }) => {
 				setusersGesPersonnel(data);
 			})
@@ -32,7 +32,7 @@ function FournisseurTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionPersonnel/deleteOne/${id}`)
+			.delete(`/api/gestionFournisseur/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -75,6 +75,7 @@ function FournisseurTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
+					reqData={"Fournisseur"}
 				/>
 			)}
 		</React.Fragment>

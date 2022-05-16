@@ -3,14 +3,14 @@ import axios from "axios";
 
 import "./style.css";
 
-function AddNewUser({ setshowAddModel }) {
+function AddNewUser({ setshowAddModel, data }) {
 	const [id, setid] = useState("");
 	const [role, setrole] = useState("");
 	const [hub, sethub] = useState("");
 	const [cin, setcin] = useState("");
 	const [nom, setnom] = useState("");
 	const [prenom, setprenom] = useState("");
-	const [tel_personnel, settel_personnel] = useState("");
+	const [tel, settel] = useState("");
 	const [mail, setmail] = useState("");
 	const [permis, setpermis] = useState("");
 	const [matricule_veh, setmatricule_veh] = useState("");
@@ -34,7 +34,7 @@ function AddNewUser({ setshowAddModel }) {
 			nom: nom,
 			prenom: prenom,
 			role: role,
-			tel_personnel: tel_personnel,
+			tel: tel,
 			mail: mail,
 			permis: permis,
 			hub: hub,
@@ -45,7 +45,7 @@ function AddNewUser({ setshowAddModel }) {
 		uploadeImage(photo)
 			.then((elem) => {
 				user.photo = elem.data.public_id;
-				axios.post("/api/gestionPersonnel/add", user);
+				axios.post(`/api/gestion${data}/add`, user);
 			})
 			.then(() => {
 				window.location.reload();
@@ -69,10 +69,10 @@ function AddNewUser({ setshowAddModel }) {
 							onChange={(e) => setrole(e.target.value)}
 						>
 							<option value='ChoisirRole'>Choisir Role</option>
-							<option value='Gérant'>Gérant</option>
+							<option value='gérant'>Gérant</option>
 							<option value='livreur'>livreur</option>
-							<option value='Commercial'>Commercial</option>
-							<option value='Magasiné'>Magasiné</option>
+							<option value='commercial'>Commercial</option>
+							<option value='magasiné'>Magasiné</option>
 						</select>
 					</div>
 					<div>
@@ -104,7 +104,7 @@ function AddNewUser({ setshowAddModel }) {
 						<input
 							className='inputAdd'
 							type='text'
-							onChange={(e) => settel_personnel(e.target.value)}
+							onChange={(e) => settel(e.target.value)}
 						/>
 					</div>
 					<div>

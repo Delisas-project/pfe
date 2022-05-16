@@ -16,11 +16,17 @@ function FournisseurManager() {
 					<GestionPersonnel
 						setshowAddModel={setshowAddModel}
 						text={"Gestion Fournisseur"}
+						role={"fournisseur"}
 					/>
 					<FournisseurTabBody />
 				</div>
 			</div>
-			{showAddModel && <AddNewUser setshowAddModel={setshowAddModel} />}
+			{showAddModel && (
+				<AddNewUser
+					setshowAddModel={setshowAddModel}
+					data={"Fournisseur"}
+				/>
+			)}
 		</React.Fragment>
 	);
 }

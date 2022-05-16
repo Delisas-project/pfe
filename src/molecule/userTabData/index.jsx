@@ -36,7 +36,7 @@ function UserTabData({
 					<Text text={data.role} />
 				</div>
 			</td>
-			<td>{data.tel_personnel}</td>
+			<td>{data.tel}</td>
 			<td>{data.mail}</td>
 			<td className={data.role}>
 				<p>{data.role}</p>

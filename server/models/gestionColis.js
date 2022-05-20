@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const gestionPersonnel = mongoose.Schema(
+const gestionColis = mongoose.Schema(
   {
     id: String,
     cin: Number,
@@ -17,4 +17,4 @@ const gestionPersonnel = mongoose.Schema(
   { timestamps: true, versionKey: false }
 );
 
-module.exports = mongoose.model("GestionPersonnel", gestionPersonnel);
+module.exports = mongoose.model("GestionColis", gestionColis);

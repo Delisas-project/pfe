@@ -6,20 +6,29 @@ import UsersTabBody from "../usersTabBody";
 import AddNewUser from "../../molecule/addNewUser";
 
 function UsersManager() {
-  const [showAddModel, setshowAddModel] = useState(false);
+	const [showAddModel, setshowAddModel] = useState(false);
 
-  return (
-    <React.Fragment>
-      <div className="usersManager">
-        <AddUserLabel />
-        <div className="userManagerContent">
-          <GestionPersonnel setshowAddModel={setshowAddModel} />
-          <UsersTabBody />
-        </div>
-      </div>
-      {showAddModel && <AddNewUser setshowAddModel={setshowAddModel} />}
-    </React.Fragment>
-  );
+	return (
+		<React.Fragment>
+			<div className='usersManager'>
+				<AddUserLabel text={"Ajouter personnel"} />
+				<div className='userManagerContent'>
+					<GestionPersonnel
+						setshowAddModel={setshowAddModel}
+						text={"Gestion personnel"}
+						role={"personnel"}
+					/>
+					<UsersTabBody />
+				</div>
+			</div>
+			{showAddModel && (
+				<AddNewUser
+					setshowAddModel={setshowAddModel}
+					data={"Personnel"}
+				/>
+			)}
+		</React.Fragment>
+	);
 }
 
 export default UsersManager;

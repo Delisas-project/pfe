@@ -23,8 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, sameSite: true }));
 
 const gestionPersonnel = require("./routers/gestionPersonnel");
+const gestionFournisseur = require("./routers/gestionFournisseur");
+const gestionColis = require("./routers/gestionColis");
 
 app.use("/api/gestionPersonnel", gestionPersonnel);
+app.use("/api/gestionFournisseur", gestionFournisseur);
+app.use("/api/gestionColis", gestionColis);
 
 app.listen(port, () => {
   console.log(`listening on port http://localhost:${port} !`);

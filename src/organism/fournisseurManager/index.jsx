@@ -2,33 +2,33 @@ import React, { useState } from "react";
 import "./style.css";
 import AddUserLabel from "../../molecule/addUserLabel";
 import GestionPersonnel from "../../molecule/gestionPersonel";
-import UsersTabBody from "../usersTabBody";
+import FournisseurTabBody from "../fournisseurTab";
 import AddNewUser from "../../molecule/addNewUser";
 
-function UsersManager() {
+function FournisseurManager() {
 	const [showAddModel, setshowAddModel] = useState(false);
 
 	return (
 		<React.Fragment>
 			<div className='usersManager'>
-				<AddUserLabel text={"Ajouter personnel"} />
+				<AddUserLabel text={"Ajouter Fournisseur"} />
 				<div className='userManagerContent'>
 					<GestionPersonnel
 						setshowAddModel={setshowAddModel}
-						text={"Gestion personnel"}
-						role={"personnel"}
+						text={"Gestion Fournisseur"}
+						role={"fournisseur"}
 					/>
-					<UsersTabBody />
+					<FournisseurTabBody />
 				</div>
 			</div>
 			{showAddModel && (
 				<AddNewUser
 					setshowAddModel={setshowAddModel}
-					data={"Personnel"}
+					data={"Fournisseur"}
 				/>
 			)}
 		</React.Fragment>
 	);
 }
 
-export default UsersManager;
+export default FournisseurManager;

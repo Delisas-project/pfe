@@ -3,10 +3,10 @@ import "./style.css";
 import Text from "../../atome/text";
 import Icon from "../../atome/icon";
 
-function AddUserLabel() {
+function AddUserLabel({ text }) {
 	return (
 		<div className='addUserLabel flexBetween'>
-			<Text text={"Ajouter personnel"} />
+			<Text text={text} />
 			<div className='gridIcon flex'>
 				<Icon
 					fill={"#fff"}

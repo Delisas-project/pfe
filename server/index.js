@@ -5,7 +5,7 @@ const port = 5000;
 const db = {
 	database:
 		// "mongodb+srv://root:root@kidkod.xmqil.mongodb.net/kidkok?retryWrites=true&w=majority" ||
-		"mongodb://localhost/pfeWael",
+		"mongodb://127.0.0.1/pfeWael",
 	secret: "mysecret",
 };
 
@@ -24,10 +24,12 @@ app.use(cors({ credentials: true, sameSite: true }));
 
 const gestionPersonnel = require("./routers/gestionPersonnel");
 const gestionFournisseur = require("./routers/gestionFournisseur");
+const gestionColis = require("./routers/gestionColis")
 
 app.use("/api/gestionPersonnel", gestionPersonnel);
 app.use("/api/gestionFournisseur", gestionFournisseur);
+app.use("/api/gestionColis", gestionColis)
 
 app.listen(port, () => {
-	console.log(`listening on port http://localhost:${port} !`);
+	console.log(`listening on port http://127.0.0.1:${port} !`);
 });

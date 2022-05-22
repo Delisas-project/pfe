@@ -7,15 +7,16 @@ import DeleteModel from "../../molecule/deleteModel";
 import UpdateUser from "../../molecule/updateUser";
 
 const tHead = [
-	"PERSONNEL ID",
-	"NOM FOURNISSEUR",
+	"CODE A BARE",
+	"NOM DU CLIENT",
 	"NUMERO TELEPHONE",
-	"ADRESSE EMAIL",
-	"ROLE PERSONNEL",
+	"DATE DE CREATION",
+	"CODE",
+	"SERVICE",
 	"ACTION",
 ];
 
-function FournisseurTabBody() {
+function UsersTabBody() {
 	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	const [updateUserModel, setupdateUserModel] = useState(false);
 	const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
@@ -23,7 +24,7 @@ function FournisseurTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionFournisseur/findAll")
+			.get("/api/gestionPersonnel/findAll")
 			.then(({ data }) => {
 				setusersGesPersonnel(data);
 			})
@@ -32,7 +33,7 @@ function FournisseurTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionFournisseur/deleteOne/${id}`)
+			.delete(`/api/gestionPersonnel/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -75,11 +76,11 @@ function FournisseurTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
-					reqData={"Fournisseur"}
+					reqData={"Personnel"}
 				/>
 			)}
 		</React.Fragment>
 	);
 }
 
-export default FournisseurTabBody;
+export default UsersTabBody;

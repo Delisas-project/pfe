@@ -12,7 +12,7 @@ function BackOfficeInterface() {
 		<BrowserRouter>
 			<div className='backOfficeInterface '>
 				<SideBar />
-				<div className='login'></div>
+				{/* <div className='login'></div> */}
 				<div className='content'>
 					<Navbar />
 					<Routes>

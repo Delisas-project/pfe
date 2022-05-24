@@ -11,8 +11,8 @@ body {
   position: relative;
   height: 100vh;
   width: 1194px;
-  background: url("https://media.discordapp.net/attachments/902189923380121670/966515388772929576/captur22.png") no-repeat center
-    center scroll;
+  background: url("https://media.discordapp.net/attachments/902189923380121670/966515388772929576/captur22.png")
+    no-repeat center center scroll;
   background-size: cover;
   float: left;
   -webkit-animation: bgslide 2.3s forwards;
@@ -87,7 +87,7 @@ ul.social-icons {
   display: inline;
   height: 100px;
 }
- 
+
 .fa-facebook {
   padding: 10px 14px;
   background-color: #322f30;

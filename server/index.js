@@ -25,10 +25,14 @@ app.use(cors({ credentials: true, sameSite: true }));
 const gestionPersonnel = require("./routers/gestionPersonnel");
 const gestionFournisseur = require("./routers/gestionFournisseur");
 const gestionColis = require("./routers/gestionColis")
+const gestionRunsheet = require ('./routers/gestionRunsheet')
+
+
 
 app.use("/api/gestionPersonnel", gestionPersonnel);
 app.use("/api/gestionFournisseur", gestionFournisseur);
 app.use("/api/gestionColis", gestionColis)
+app.use("/api/gestionRunsheet", gestionRunsheet)
 
 app.listen(port, () => {
 	console.log(`listening on port http://127.0.0.1:${port} !`);

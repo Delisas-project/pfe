@@ -5,7 +5,6 @@ module.exports = {
 	add_gestionColis: async (req, res) => {
 		try {
 			let gestionColis = req.body;
-
 			const savedgestionColis = await GestionColis.create(
 				gestionColis
 			);

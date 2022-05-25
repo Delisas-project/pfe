@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
-import UserTabData from "../../molecule/userTabData";
+import ColisTabData from "../../molecule/colisTabData";
 import DeleteModel from "../../molecule/deleteModel";
 import UpdateUser from "../../molecule/updateUser";
 
@@ -12,11 +12,12 @@ const tHead = [
 	"NUMERO TELEPHONE",
 	"DATE DE CREATION",
 	"CODE",
+	"ETAT",
 	"SERVICE",
 	"ACTION",
 ];
 
-function UsersTabBody() {
+function ColisTabBody() {
 	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	const [updateUserModel, setupdateUserModel] = useState(false);
 	const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
@@ -24,16 +25,18 @@ function UsersTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionPersonnel/findAll")
+			.get("/api/gestionColis/findAll")
 			.then(({ data }) => {
+				console.log(data)
 				setusersGesPersonnel(data);
+		
 			})
 			.catch((err) => console.log(err));
 	};
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionPersonnel/deleteOne/${id}`)
+			.delete(`/api/gestionColis/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -55,7 +58,7 @@ function UsersTabBody() {
 				<TableHead head={tHead} />
 				<tbody>
 					{usersGesPersonnel.map((user, i) => (
-						<UserTabData
+						<ColisTabData
 							data={user}
 							key={i}
 							setshowDeleteModel={setshowDeleteModel}
@@ -76,11 +79,11 @@ function UsersTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
-					reqData={"Personnel"}
+					reqData={"Colis"}
 				/>
 			)}
 		</React.Fragment>
-	);
+	)
 }
 
-export default UsersTabBody;
+export default ColisTabBody;

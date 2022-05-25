@@ -2,33 +2,33 @@ import React, { useState } from "react";
 import "./style.css";
 import AddUserLabel from "../../molecule/addUserLabel";
 import GestionPersonnel from "../../molecule/gestionPersonel";
-import UsersTabBody from "../usersTabBody";
+import ColisTabBody from "../coliesTab";
 import AddNewUser from "../../molecule/addNewUser";
+import AddNewColis from "../../molecule/addNewColis";
+import ColisStat from "../../molecule/colisStat";
 
-function UsersManager() {
+function ColisManager() {
 	const [showAddModel, setshowAddModel] = useState(false);
 
 	return (
-		<React.Fragment>
+		<>
 			<div className='usersManager'>
-				<AddUserLabel text={"Ajouter personnel"} />
+				<AddUserLabel text={"Ajouter colis"} />
+				<ColisStat />
 				<div className='userManagerContent'>
 					<GestionPersonnel
 						setshowAddModel={setshowAddModel}
-						text={"Gestion personnel"}
-						role={"personnel"}
+						text={"Gestion colis"}
+						role={"colis"}
 					/>
-					<UsersTabBody />
+					<ColisTabBody />
 				</div>
 			</div>
 			{showAddModel && (
-				<AddNewUser
-					setshowAddModel={setshowAddModel}
-					data={"Personnel"}
-				/>
+				<AddNewColis setshowAddModel={setshowAddModel} data={"Colis"} />
 			)}
-		</React.Fragment>
+		</>
 	);
 }
 
-export default UsersManager;
+export default ColisManager;

@@ -6,6 +6,8 @@ import Navbar from "../../organism/navbar";
 import UsersManager from "../../organism/usersManager";
 // import Login from '../../organism/login'
 import FournisseurManager from "../../organism/fournisseurManager";
+import ColisManager from "../../organism/coliesManager";
+
 
 function BackOfficeInterface() {
 	return (
@@ -23,6 +25,10 @@ function BackOfficeInterface() {
 						<Route
 							path='/gestionfournisseurs'
 							element={<FournisseurManager />}
+						></Route>
+						<Route
+							path='/gestioncolis'
+							element={<ColisManager />}
 						></Route>
 					</Routes>
 				</div>

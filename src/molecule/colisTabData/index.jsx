@@ -5,7 +5,7 @@ import Icon from "../../atome/icon";
 // import Image from "../../atome/image";
 import { Image } from "cloudinary-react";
 
-function UserTabData({
+function ColisTabData({
 	data,
 	setshowDeleteModel,
 	setupdateUserModel,
@@ -21,27 +21,19 @@ function UserTabData({
 		var idd = data.id;
 		localStorage.setItem("idOfUserToUpdate", idd);
 	};
+
+		
 	return (
 		<tr className='dataRow'>
-			<td>{data.id}</td>
-			<td className='ImageAndFullname'>
-				{/* <Image src={data.photo} /> */}
-				<Image
-					cloudName='outibois'
-					public_id={data.photo}
-					className='userImage'
-				/>
-				<div className='flexColStart fullName'>
-					<Text text={data.nom} />
-					<Text text={data.role} />
-				</div>
+			<td>{data.code_a_bare}</td>
+			<td className='ImageAndFullname'>{data.nom_du_client}</td>
+			<td>{data.numero_telephone}</td>
+			<td>{data.date_de_creation}</td>
+			<td>{data.code}</td>
+			<td className={data.etat}>
+				<p>{data.etat}</p>
 			</td>
-			<td>{data.tel}</td>
-			<td>{data.mail}</td>
-			<td className={data.role}>
-				<p>{data.role}</p>
-				{/* {data.role} */}
-			</td>
+			<td>{data.service}</td>
 			<td className='flexStart actionIcons'>
 				<div onClick={() => setTwoStatesUpdate()}>
 					<Icon
@@ -64,4 +56,4 @@ function UserTabData({
 	);
 }
 
-export default UserTabData;
+export default ColisTabData;

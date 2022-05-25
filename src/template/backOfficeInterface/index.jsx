@@ -7,7 +7,7 @@ import UsersManager from "../../organism/usersManager";
 // import Login from '../../organism/login'
 import FournisseurManager from "../../organism/fournisseurManager";
 import ColisManager from "../../organism/coliesManager";
-
+import RunSheetManager from "../../organism/runSheetManager";
 
 function BackOfficeInterface() {
 	return (
@@ -29,6 +29,10 @@ function BackOfficeInterface() {
 						<Route
 							path='/gestioncolis'
 							element={<ColisManager />}
+						></Route>
+						<Route
+							path='/gestionrunsheet'
+							element={<RunSheetManager />}
 						></Route>
 					</Routes>
 				</div>

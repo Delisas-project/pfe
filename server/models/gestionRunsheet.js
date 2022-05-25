@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const gestionRunsheet = mongoose.Schema(
 	{
-		code_a_bare: String,
+		code_a_bare: Number,
 		nom_livreur: String,
 		date_de_creation: String,
 		etat_debrief: String,

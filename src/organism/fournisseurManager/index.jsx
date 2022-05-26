@@ -3,7 +3,7 @@ import "./style.css";
 import AddUserLabel from "../../molecule/addUserLabel";
 import GestionPersonnel from "../../molecule/gestionPersonel";
 import FournisseurTabBody from "../fournisseurTab";
-import AddNewUser from "../../molecule/addNewUser";
+import AddNewFournisseur from "../../molecule/addNewFournisseur";
 
 function FournisseurManager() {
 	const [showAddModel, setshowAddModel] = useState(false);
@@ -22,7 +22,7 @@ function FournisseurManager() {
 				</div>
 			</div>
 			{showAddModel && (
-				<AddNewUser
+				<AddNewFournisseur
 					setshowAddModel={setshowAddModel}
 					data={"Fournisseur"}
 				/>

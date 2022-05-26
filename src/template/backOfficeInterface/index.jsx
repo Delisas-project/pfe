@@ -8,13 +8,14 @@ import UsersManager from "../../organism/usersManager";
 import FournisseurManager from "../../organism/fournisseurManager";
 import ColisManager from "../../organism/coliesManager";
 import RunSheetManager from "../../organism/runSheetManager";
+import HubManager from "../../organism/HubManager";
 
 function BackOfficeInterface() {
 	return (
 		<BrowserRouter>
 			<div className='backOfficeInterface '>
 				<SideBar />
-			
+
 				<div className='content'>
 					<Navbar />
 					<Routes>
@@ -33,6 +34,10 @@ function BackOfficeInterface() {
 						<Route
 							path='/gestionrunsheet'
 							element={<RunSheetManager />}
+						></Route>
+						<Route
+							path='/gestionhub'
+							element={<HubManager />}
 						></Route>
 					</Routes>
 				</div>

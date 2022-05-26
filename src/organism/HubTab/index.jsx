@@ -4,19 +4,11 @@ import "./style.css";
 import TableHead from "../../atome/tableHead";
 import DeleteModel from "../../molecule/deleteModel";
 import UpdateUser from "../../molecule/updateUser";
-import FournisseurTabData from "../../molecule/fournisseurTabData";
+import HubTabData from "../../molecule/HubTabData";
 
-const tHead = [
-	"FOURNISSEUR ID",
-	"NOM SOCIETE",
-	"NOM FOURNISSEUR",
-	"NUMERO TELEPHONE",
-	"ADRESSE SOCIETE",
-	"DATE FIN CONTRAT",
-	"ACTION",
-];
+const tHead = ["HUB ID", "TITRE HUB", "ADRESSE", "GOUVERNERAT", "ACTION"];
 
-function FournisseurTabBody() {
+function HubTabBody() {
 	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	const [updateUserModel, setupdateUserModel] = useState(false);
 	const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
@@ -24,8 +16,9 @@ function FournisseurTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionFournisseur/findAll")
+			.get("/api/gestionHub/findAll")
 			.then(({ data }) => {
+				console.log(data);
 				setusersGesPersonnel(data);
 			})
 			.catch((err) => console.log(err));
@@ -33,7 +26,7 @@ function FournisseurTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionFournisseur/deleteOne/${id}`)
+			.delete(`/api/gestionHub/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -55,7 +48,7 @@ function FournisseurTabBody() {
 				<TableHead head={tHead} />
 				<tbody>
 					{usersGesPersonnel.map((user, i) => (
-						<FournisseurTabData
+						<HubTabData
 							data={user}
 							key={i}
 							setshowDeleteModel={setshowDeleteModel}
@@ -76,11 +69,11 @@ function FournisseurTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
-					reqData={"Fournisseur"}
+					reqData={"Hub"}
 				/>
 			)}
 		</React.Fragment>
 	);
 }
 
-export default FournisseurTabBody;
+export default HubTabBody;

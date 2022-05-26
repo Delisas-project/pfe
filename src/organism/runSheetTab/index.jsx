@@ -13,6 +13,7 @@ const tHead = [
 	"DATE DE CREATION",
 	"ETAT DEBRIEF",
 	"PRIX TOTAL",
+	"SERVICE",
 ];
 
 function RunSheetTabBody() {
@@ -23,7 +24,7 @@ function RunSheetTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionRunSheet/findAll")
+			.get("/api/gestionRunsheet/findAll")
 			.then(({ data }) => {
 				console.log(data);
 				setusersGesPersonnel(data);
@@ -33,7 +34,7 @@ function RunSheetTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionRunSheet/deleteOne/${id}`)
+			.delete(`/api/gestionRunsheet/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})

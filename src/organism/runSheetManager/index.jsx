@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./style.css";
 import AddUserLabel from "../../molecule/addUserLabel";
 import GestionPersonnel from "../../molecule/gestionPersonel";
-import AddNewColis from "../../molecule/addNewColis";
 import RunSheetTabBody from "../runSheetTab";
+import AddNewRunSheet from "../../molecule/addNewRunSheet";
 
 function RunSheetManager() {
 	const [showAddModel, setshowAddModel] = useState(false);
@@ -23,7 +23,10 @@ function RunSheetManager() {
 				</div>
 			</div>
 			{showAddModel && (
-				<AddNewColis setshowAddModel={setshowAddModel} data={"RunSheet"} />
+				<AddNewRunSheet
+					setshowAddModel={setshowAddModel}
+					data={"Runsheet"}
+				/>
 			)}
 		</>
 	);

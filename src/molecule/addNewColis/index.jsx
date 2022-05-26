@@ -71,7 +71,7 @@ function AddNewColis({ setshowAddModel, data }) {
 						<label className='labelAdd'>Date de creation</label>
 						<input
 							className='inputAdd'
-							type='text'
+							type='date'
 							onChange={(e) =>
 								setdate_de_creation(e.target.value)
 							}

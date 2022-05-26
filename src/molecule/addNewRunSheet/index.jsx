@@ -17,7 +17,7 @@ function AddNewRunSheet({ setshowAddModel, data }) {
 	// 	"PRIX TOTAL",
 
 	const addUser = () => {
-		let colis = {
+		let runSheet = {
 			code_a_bare: code_a_bare,
 			nom_du_livreur: nom_du_livreur,
 			date_de_creation: date_de_creation,
@@ -26,8 +26,7 @@ function AddNewRunSheet({ setshowAddModel, data }) {
 		};
 
 		axios
-			.post(`/api/gestion${data}/add`, colis)
-
+			.post(`/api/gestionRunsheet/add`, runSheet)
 			.then(() => {
 				window.location.reload();
 				setshowAddModel(false);
@@ -61,7 +60,7 @@ function AddNewRunSheet({ setshowAddModel, data }) {
 						<label className='labelAdd'>Date de creation</label>
 						<input
 							className='inputAdd'
-							type='text'
+							type='date'
 							onChange={(e) =>
 								setdate_de_creation(e.target.value)
 							}

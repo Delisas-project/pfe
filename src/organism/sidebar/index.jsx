@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-// import { useHistory } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Image from "../../atome/image";
 import IconLabel from "../../molecule/iconLabel";
@@ -64,11 +63,7 @@ function SideBar() {
 				: elem.classList.remove("visited")
 		);
 	};
-	// let history = useHistory();
-
-	// function handleClick(path) {
-	// 	history.push(path);
-	// }
+	
 	return (
 		<div className='sideBarContainer flexColStart'>
 			<Image

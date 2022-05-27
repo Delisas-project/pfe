@@ -6,18 +6,18 @@ import Login from "./organism/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="app">
-		{/* <BrowserRouter>
-		<Routes>
-		<Route path="/login" element ={<Login/>}></Route>
-		<Route path = "/BackOfficeInterface" element={<BackOfficeInterface/>}></Route>
-		</Routes>
-		</BrowserRouter> */}
-      <BackOfficeInterface />
-      {/* <Login /> */}
-    </div>
-  );
+	return (
+		<div className='app'>
+			{/* <BrowserRouter>
+				<Routes>
+					<Route path='/login' element={<Login />}></Route>
+					<Route path='/' element={<BackOfficeInterface />}></Route>
+				</Routes>
+			</BrowserRouter> */}
+      <Login/>
+			{/* <BackOfficeInterface /> */}
+		</div>
+	);
 }
 
 export default App;

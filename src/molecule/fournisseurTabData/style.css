@@ -31,38 +31,61 @@ td {
 	padding-top: 5px;
 	padding-bottom: 10px;
 }
-.commercial p {
+
+
+
+.En_stock p {
 	margin: 0;
-	color: #ffb167;
+	color: #54deef;
 	font-weight: bolder;
-	background-color: #fff3e8;
+	background-color: #e0f9fc;
 	width: fit-content;
 	padding: 2px 8px;
 	border-radius: 15px;
 }
-.gérant p {
+.En_cours_de_livraison p {
 	margin: 0;
-	color: #ee8080;
-	font-weight: bolder;
-	background-color: #fceaea;
-	width: fit-content;
-	padding: 2px 8px;
-	border-radius: 15px;
-}
-.livreur p {
-	margin: 0;
-	color: #74daa2;
+	color: #34ca77;
 	font-weight: bolder;
 	background-color: #e5f8ed;
 	width: fit-content;
 	padding: 2px 8px;
 	border-radius: 15px;
 }
-.magasiné p {
+.Livrés p {
 	margin: 0;
-	color: #52ddef;
+	color: #ffa958;
 	font-weight: bolder;
-	background-color: #e0f9fc;
+	background-color: #fff3e8;
+	width: fit-content;
+	padding: 2px 8px;
+	border-radius: 15px;
+}
+.Livrés_et_payes p {
+	margin: 0;
+	color: #2ac770;
+	font-weight: bolder;
+	background-color: #e5f8ed;
+	width: fit-content;
+	padding: 2px 8px;
+	border-radius: 15px;
+}
+
+.Planifiés_retour p {
+	margin: 0;
+	color: #ffa047;
+	font-weight: bolder;
+	background-color: #fff3e8;
+	width: fit-content;
+	padding: 2px 8px;
+	border-radius: 15px;
+}
+
+.Retournés p {
+	margin: 0;
+	color: #ee8080;
+	font-weight: bolder;
+	background-color:  #fceaea;
 	width: fit-content;
 	padding: 2px 8px;
 	border-radius: 15px;

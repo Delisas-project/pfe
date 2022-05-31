@@ -9,3 +9,7 @@
 	align-items: flex-start;
 	justify-content: start;
 }
+.underNav {
+	scroll-behavior: smooth;
+	/* overflow-y: auto; */
+}

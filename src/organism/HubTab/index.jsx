@@ -2,20 +2,13 @@ import React, { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
-import UserTabData from "../../molecule/userTabData";
 import DeleteModel from "../../molecule/deleteModel";
 import UpdateUser from "../../molecule/updateUser";
+import HubTabData from "../../molecule/HubTabData";
 
-const tHead = [
-	"PERSONNEL ID",
-	"NOM PERSONNEL",
-	"NUMERO TELEPHONE",
-	"ADRESSE EMAIL",
-	"ROLE PERSONNEL",
-	"ACTION",
-];
+const tHead = ["HUB ID", "TITRE HUB", "ADRESSE", "GOUVERNERAT", "ACTION"];
 
-function UsersTabBody() {
+function HubTabBody() {
 	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	const [updateUserModel, setupdateUserModel] = useState(false);
 	const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
@@ -23,8 +16,9 @@ function UsersTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionPersonnel/findAll")
+			.get("/api/gestionHub/findAll")
 			.then(({ data }) => {
+				console.log(data);
 				setusersGesPersonnel(data);
 			})
 			.catch((err) => console.log(err));
@@ -32,7 +26,7 @@ function UsersTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionPersonnel/deleteOne/${id}`)
+			.delete(`/api/gestionHub/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -54,7 +48,7 @@ function UsersTabBody() {
 				<TableHead head={tHead} />
 				<tbody>
 					{usersGesPersonnel.map((user, i) => (
-						<UserTabData
+						<HubTabData
 							data={user}
 							key={i}
 							setshowDeleteModel={setshowDeleteModel}
@@ -75,11 +69,11 @@ function UsersTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
-					reqData={"Personnel"}
+					reqData={"Hub"}
 				/>
 			)}
 		</React.Fragment>
 	);
 }
 
-export default UsersTabBody;
+export default HubTabBody;

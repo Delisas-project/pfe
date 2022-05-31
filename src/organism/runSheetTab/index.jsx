@@ -2,20 +2,21 @@ import React, { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
-import UserTabData from "../../molecule/userTabData";
+
 import DeleteModel from "../../molecule/deleteModel";
 import UpdateUser from "../../molecule/updateUser";
+import RunSheetTabData from "../../molecule/runSheetTabData";
 
 const tHead = [
-	"PERSONNEL ID",
-	"NOM PERSONNEL",
-	"NUMERO TELEPHONE",
-	"ADRESSE EMAIL",
-	"ROLE PERSONNEL",
-	"ACTION",
+	"CODE A BARE",
+	"NOM DU LIVREUR",
+	"DATE DE CREATION",
+	"ETAT DEBRIEF",
+	"PRIX TOTAL",
+	"SERVICE",
 ];
 
-function UsersTabBody() {
+function RunSheetTabBody() {
 	const [showDeleteModel, setshowDeleteModel] = useState(false);
 	const [updateUserModel, setupdateUserModel] = useState(false);
 	const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
@@ -23,8 +24,9 @@ function UsersTabBody() {
 
 	const fetchdata = () => {
 		axios
-			.get("/api/gestionPersonnel/findAll")
+			.get("/api/gestionRunsheet/findAll")
 			.then(({ data }) => {
+				console.log(data);
 				setusersGesPersonnel(data);
 			})
 			.catch((err) => console.log(err));
@@ -32,7 +34,7 @@ function UsersTabBody() {
 
 	function remove(id) {
 		axios
-			.delete(`/api/gestionPersonnel/deleteOne/${id}`)
+			.delete(`/api/gestionRunsheet/deleteOne/${id}`)
 			.then(() => {
 				fetchdata();
 			})
@@ -54,7 +56,7 @@ function UsersTabBody() {
 				<TableHead head={tHead} />
 				<tbody>
 					{usersGesPersonnel.map((user, i) => (
-						<UserTabData
+						<RunSheetTabData
 							data={user}
 							key={i}
 							setshowDeleteModel={setshowDeleteModel}
@@ -75,11 +77,11 @@ function UsersTabBody() {
 				<UpdateUser
 					data={usersGesPersonnel}
 					setupdateUserModel={setupdateUserModel}
-					reqData={"Personnel"}
+					reqData={"Colis"}
 				/>
 			)}
 		</React.Fragment>
 	);
 }
 
-export default UsersTabBody;
+export default RunSheetTabBody;

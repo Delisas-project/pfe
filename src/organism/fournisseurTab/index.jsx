@@ -2,16 +2,17 @@ import React, { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
-import UserTabData from "../../molecule/userTabData";
 import DeleteModel from "../../molecule/deleteModel";
 import UpdateUser from "../../molecule/updateUser";
+import FournisseurTabData from "../../molecule/fournisseurTabData";
 
 const tHead = [
-	"PERSONNEL ID",
-	"NOM PERSONNEL",
-	"NUMERO THELEPHONE",
-	"ADRESSE EMAIL",
-	"ROLE PERSONNEL",
+	"FOURNISSEUR ID",
+	"NOM SOCIETE",
+	"NOM FOURNISSEUR",
+	"NUMERO TELEPHONE",
+	"ADRESSE SOCIETE",
+	"DATE FIN CONTRAT",
 	"ACTION",
 ];
 
@@ -54,7 +55,7 @@ function FournisseurTabBody() {
 				<TableHead head={tHead} />
 				<tbody>
 					{usersGesPersonnel.map((user, i) => (
-						<UserTabData
+						<FournisseurTabData
 							data={user}
 							key={i}
 							setshowDeleteModel={setshowDeleteModel}

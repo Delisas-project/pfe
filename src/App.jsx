@@ -8,13 +8,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
 	return (
 		<div className='app'>
-			{/* <BrowserRouter>
-				<Routes>
-					<Route path='/login' element={<Login />}></Route>
-					<Route path='/' element={<BackOfficeInterface />}></Route>
-				</Routes>
-			</BrowserRouter> */}
-      <Login/>
+			<React.StrictMode>
+				<BrowserRouter>
+					<Routes>
+						<Route path='/' element={<Login />}></Route>
+						<Route
+							path='/backOfficeInterface/*'
+							element={<BackOfficeInterface />}
+						></Route>
+					</Routes>
+				</BrowserRouter>
+			</React.StrictMode>
+			{/* <Login /> */}
 			{/* <BackOfficeInterface /> */}
 		</div>
 	);

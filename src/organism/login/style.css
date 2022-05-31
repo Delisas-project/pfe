@@ -39,6 +39,11 @@ span.colored {
 	height: 0;
 	border: 0.1px solid rgb(183, 182, 182);
 }
-.line {
+.line,
+.socialMediaIcons {
 	column-gap: 15px;
+}
+.alert{
+	font-weight: bold;
+	color: rgb(234, 105, 105);
 }

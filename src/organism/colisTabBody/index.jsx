@@ -4,7 +4,7 @@ import "./style.css";
 import TableHead from "../../atome/tableHead";
 import UserTabData from "../../molecule/userTabData";
 import DeleteModel from "../../molecule/deleteModel";
-import UpdateUser from "../../molecule/updateUser";
+import UpdateColis from "../../molecule/updateColis";
 
 const tHead = [
   "CODE A BARRES",
@@ -74,7 +74,8 @@ function ColisTabBody() {
         />
       )}
       {updateUserModel && (
-        <UpdateUser
+
+        <UpdateColis
           data={dataGestColis}
           setupdateUserModel={setupdateUserModel}
           reqData={"Colis"}

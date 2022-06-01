@@ -37,4 +37,5 @@
 
 .app {
 	font-family: "Montserrat", sans-serif;
+	height: -webkit-fill-available;
 }

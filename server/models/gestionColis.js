@@ -5,9 +5,10 @@ const gestionColis = mongoose.Schema(
 	{
 		code_a_bare: Number,
 		nom_du_client: String,
-		numero_telephone: Number,
+		numero_telephone: String,
 		date_de_creation: String,
-		code: Number,
+		code: String,
+		etat:String,
 		service: String,
 		
 	},

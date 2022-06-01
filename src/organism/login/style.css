@@ -1,111 +1,49 @@
-/* * {
-  margin: 0;
-  padding: 0;
+.loginInterface img {
+	height: 790px;
 }
-body {
-  background-color: rgb(255, 255, 255);
-  font-family: Montserrat;
-  overflow-x: hidden;
+.rightSection {
+	width: -webkit-fill-available;
+	row-gap: 20px;
 }
-.bg-illustration {
-  position: relative;
-  height: 100vh;
-  width: 1194px;
-  background: url("https://media.discordapp.net/attachments/902189923380121670/966515388772929576/captur22.png")
-    no-repeat center center scroll;
-  background-size: cover;
-  float: left;
-  -webkit-animation: bgslide 2.3s forwards;
-  animation: bgslide 2.3s forwards;
+.rightSection .welcomLabel {
+	font-size: 20pt;
+	font-weight: bolder;
 }
-.login {
-  max-height: 100vh;
-  overflow-y: auto;
-  float: left;
-  margin: 0 auto;
-  width: calc(100% - 1194px);
+.signInBtn {
+	width: 310px;
+	height: 35px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #7367f0;
+	border-radius: 5px;
+	border: none;
 }
-.login .container {
-  width: 505px;
-  margin: 0 auto;
-  position: relative;
+.passwordLabel {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: -webkit-fill-available;
 }
-.login .container h1 {
-  margin-top: 100px;
-  font-size: 35px;
-  font-weight: bolder;
+.rememberMeBox {
+	height: 15px;
+	width: 15px;
 }
-.login .container .login-form {
-  margin-top: 112px;
+.colored {
+	color: #7367f0;
 }
-.login .container .login-form form {
-  display: -ms-grid;
-  display: grid;
+span.colored {
+	font-weight: bold;
 }
-.login .container .login-form form input {
-  font-size: 16px;
-  font-weight: normal;
-  background: rgba(217, 9, 9, 0.07);
-  margin: 12.5px 0;
-  height: 68px;
-  border: none;
-  padding: 0 30px;
-  border-radius: 10px;
+.line span {
+	width: 120px;
+	height: 0;
+	border: 0.1px solid rgb(183, 182, 182);
 }
-.login .container .login-form form button[type="submit"] {
-  background: linear-gradient(-20deg, #7266ed 0%, #7266ed 100%);
-  border: none;
-  margin-top: 124px;
-  margin-bottom: 20px;
-  width: 241px;
-  height: 58px;
-  text-transform: uppercase;
-  color: white;
-  border-radius: 10px;
-  position: relative;
-  z-index: 2;
-  font-weight: bold;
-  font-size: 20px;
+.line,
+.socialMediaIcons {
+	column-gap: 15px;
 }
-ul {
-  padding: 0;
-  list-style: none;
+.alert{
+	font-weight: bold;
+	color: rgb(234, 105, 105);
 }
-.footer-social-icons {
-  width: 350px;
-  display: block;
-  margin: 0 auto;
-}
-.social-icon {
-  color: #fff;
-}
-ul.social-icons {
-  margin-top: 10px;
-}
-.social-icons li {
-  vertical-align: top;
-  display: inline;
-  height: 100px;
-}
-
-.fa-facebook {
-  padding: 10px 14px;
-  background-color: #322f30;
-}
-.fa-facebook:hover {
-  background-color: #3d5b99;
-}
-.fa-twitter {
-  padding: 10px 12px;
-  background-color: #322f30;
-}
-.fa-twitter:hover {
-  background-color: #00aced;
-}
-.fa-github {
-  padding: 10px 14px;
-  background-color: #322f30;
-}
-.fa-github:hover {
-  background-color: #5a32a3;
-} */

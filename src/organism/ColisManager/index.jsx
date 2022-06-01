@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./style.css";
-import Text from "../../atome/text";
 import Icon from "../../atome/icon";
 import GestionPersonnel from "../../molecule/gestionPersonel";
 import ColisTabBody from "../colisTabBody";

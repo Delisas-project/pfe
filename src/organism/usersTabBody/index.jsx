@@ -9,7 +9,7 @@ import UpdateUser from "../../molecule/updateUser";
 const tHead = [
 	"PERSONNEL ID",
 	"NOM PERSONNEL",
-	"NUMERO THELEPHONE",
+	"NUMERO TELEPHONE",
 	"ADRESSE EMAIL",
 	"ROLE PERSONNEL",
 	"ACTION",

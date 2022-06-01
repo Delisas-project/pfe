@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import Text from "../../atome/text";
 import Icon from "../../atome/icon";
-// import Image from "../../atome/image";
 import { Image } from "cloudinary-react";
 
 function UserTabData({
@@ -17,7 +16,6 @@ function UserTabData({
 	};
 	const setTwoStatesUpdate = () => {
 		setupdateUserModel(true);
-		console.log(data);
 		var idd = data.id;
 		localStorage.setItem("idOfUserToUpdate", idd);
 	};

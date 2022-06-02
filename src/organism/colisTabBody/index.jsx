@@ -2,32 +2,39 @@ import React, { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
+import UserTabData from "../../molecule/userTabData";
 import DeleteModel from "../../molecule/deleteModel";
-import UpdateUser from "../../molecule/updateUser";
-import HubTabData from "../../molecule/HubTabData";
-import UpdateHub from "../../molecule/updateHub";
+import UpdateColis from "../../molecule/updateColis";
 
-const tHead = ["HUB ID", "TITRE HUB", "ADRESSE", "GOUVERNERAT", "ACTION"];
+const tHead = [
+  "CODE A BARRES",
+  "NOM DU CLIENT",
+  "NUMERO DE THELEPHONE",
+  "DATE DE CREATION",
+  "COD",
+  "ETAT",
+  "SERVICE",
+  "ACTION",
+];
 
-function HubTabBody() {
+function ColisTabBody() {
   const [showDeleteModel, setshowDeleteModel] = useState(false);
   const [updateUserModel, setupdateUserModel] = useState(false);
-  const [usersGesPersonnel, setusersGesPersonnel] = useState([]);
+  const [dataGestColis, setdataGestColis] = useState([]);
   const [idRemove, setidRemove] = useState("");
 
   const fetchdata = () => {
     axios
-      .get("/api/gestionHub/findAll")
+      .get("/api/gestionColis/findAll")
       .then(({ data }) => {
-        console.log(data);
-        setusersGesPersonnel(data);
+        setdataGestColis(data);
       })
       .catch((err) => console.log(err));
   };
 
   function remove(id) {
     axios
-      .delete(`/api/gestionHub/deleteOne/${id}`)
+      .delete(`/api/gestionColis/deleteOne/${id}`)
       .then(() => {
         fetchdata();
       })
@@ -48,8 +55,8 @@ function HubTabBody() {
       <table className="usersTab">
         <TableHead head={tHead} />
         <tbody>
-          {usersGesPersonnel.map((user, i) => (
-            <HubTabData
+          {dataGestColis.map((user, i) => (
+            <UserTabData
               data={user}
               key={i}
               setshowDeleteModel={setshowDeleteModel}
@@ -67,19 +74,15 @@ function HubTabBody() {
         />
       )}
       {updateUserModel && (
-        // <UpdateUser
-        // 	data={usersGesPersonnel}
-        // 	setupdateUserModel={setupdateUserModel}
-        // 	reqData={"Hub"}
-        // />
-        <UpdateHub
-          data={usersGesPersonnel}
+
+        <UpdateColis
+          data={dataGestColis}
           setupdateUserModel={setupdateUserModel}
-          reqData={"Hub"}
+          reqData={"Colis"}
         />
       )}
     </React.Fragment>
   );
 }
 
-export default HubTabBody;
+export default ColisTabBody;

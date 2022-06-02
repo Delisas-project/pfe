@@ -5,7 +5,7 @@ const port = 5000;
 const db = {
   database:
     // "mongodb+srv://root:root@kidkod.xmqil.mongodb.net/kidkok?retryWrites=true&w=majority" ||
-    "mongodb://127.0.0.1/pfeWael",
+    "mongodb://localhost/pfeWael",
   secret: "mysecret",
 };
 
@@ -26,8 +26,7 @@ const gestionPersonnel = require("./routers/gestionPersonnel");
 const gestionFournisseur = require("./routers/gestionFournisseur");
 const gestionColis = require("./routers/gestionColis");
 const gestionRunsheet = require("./routers/gestionRunsheet");
-const gestionHub = require('./routers/gestionHub')
-
+const gestionHub = require("./routers/gestionHub");
 
 app.use("/api/gestionPersonnel", gestionPersonnel);
 app.use("/api/gestionFournisseur", gestionFournisseur);

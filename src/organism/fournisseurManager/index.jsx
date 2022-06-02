@@ -6,7 +6,7 @@ import FournisseurTabBody from "../fournisseurTab";
 import AddNewFournisseur from "../../molecule/addNewFournisseur";
 
 function FournisseurManager() {
-	const [showAddModel, setshowAddModel] = useState(false);
+  const [showAddModel, setshowAddModel] = useState(false);
 
 	return (
 		<React.Fragment>

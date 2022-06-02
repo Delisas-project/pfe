@@ -2,14 +2,14 @@ import React, { useLayoutEffect, useState } from "react";
 import axios from "axios";
 import "./style.css";
 
-function UpdateUser({ setupdateUserModel, data }) {
+function UpdateUser({ setupdateUserModel, data, reqData }) {
   const [dataOfItemToUpdate, setdataOfItemToUpdate] = useState({
     id: "",
     cin: "",
     nom: "",
     prenom: "",
     role: "",
-    tel_personnel: "",
+    tel: "",
     mail: "",
     permis: "",
     hub: "",
@@ -22,9 +22,7 @@ function UpdateUser({ setupdateUserModel, data }) {
   const [nom, setnom] = useState(dataOfItemToUpdate.nom);
   const [prenom, setprenom] = useState(dataOfItemToUpdate.prenom);
   const [role, setrole] = useState(dataOfItemToUpdate.role);
-  const [tel_personnel, settel_personnel] = useState(
-    dataOfItemToUpdate.tel_personnel
-  );
+  const [tel, settel] = useState(dataOfItemToUpdate.tel);
   const [mail, setmail] = useState(dataOfItemToUpdate.mail);
   const [permis, setpermis] = useState(dataOfItemToUpdate.permis);
   const [hub, sethub] = useState(dataOfItemToUpdate.hub);
@@ -51,7 +49,7 @@ function UpdateUser({ setupdateUserModel, data }) {
         setprenom(data[i].prenom);
         setcarte_grise(data[i].carte_grise);
         setmatricule_veh(data[i].matricule_veh);
-        settel_personnel(data[i].telsettel_personnel);
+        settel(data[i].telsettel);
       }
     }
   };
@@ -63,7 +61,7 @@ function UpdateUser({ setupdateUserModel, data }) {
       nom: nom,
       prenom: prenom,
       role: role,
-      tel_personnel: tel_personnel,
+      tel: tel,
       mail: mail,
       permis: permis,
       hub: hub,
@@ -72,7 +70,7 @@ function UpdateUser({ setupdateUserModel, data }) {
     };
     axios
       .put(
-        `/api/gestionPersonnel/updateOne/${dataOfItemToUpdate._id}`,
+        `/api/gestion${reqData}/updateOne/${dataOfItemToUpdate._id}`,
         dataUpdate
       )
       .then(() => {
@@ -151,10 +149,10 @@ function UpdateUser({ setupdateUserModel, data }) {
           <div>
             <label className="labelUpdate">Numéro du téléphone</label>
             <input
-              defaultValue={dataOfItemToUpdate.tel_personnel}
+              defaultValue={dataOfItemToUpdate.tel}
               className="inputAdd"
               type="text"
-              onChange={(e) => settel_personnel(e.target.value)}
+              onChange={(e) => settel(e.target.value)}
             />
           </div>
           <div>
@@ -214,8 +212,12 @@ function UpdateUser({ setupdateUserModel, data }) {
           </div>
           <div>
             <label className="labelUpdate">Hub</label>
-            onChange={(e) => sethub(e.target.value)}
-            <select className="inputAdd" name="cars" id="cars">
+            <select
+              className="inputAdd"
+              name="cars"
+              id="cars"
+              onChange={(e) => sethub(e.target.value)}
+            >
               <option value="ChoisirRole">Choisir Hub</option>
               <option value="Gérant">Gérant</option>
               <option value="livreur">livreur</option>

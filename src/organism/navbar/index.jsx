@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+// import { useHistory } from "react-router-dom";
 import Icon from "../../atome/icon";
 import Text from "../../atome/text";
 import Image from "../../atome/image";
@@ -20,7 +21,13 @@ const rigthIcons = [
 ];
 
 function Navbar() {
+	// let history = useHistory();
+
+	// function handleClick(path) {
+	// 	history.push(path);
+	// }
 	return (
+		<div className='fixed'>
 		<div className='navbar'>
 			<div className='leftIcons flex'>
 				{leftIcons.map((path, i) => (
@@ -39,6 +46,7 @@ function Navbar() {
 				</div>
 				<Image src='https://media.gettyimages.com/photos/beautiful-woman-with-voluminous-hairstyle-picture-id1131744616?k=20&m=1131744616&s=612x612&w=0&h=GsA2a2CXL-lvmOtT1R4hNxw1UlTJuOtOhGbZm3JJXNE=' />
 			</div>
+		</div>
 		</div>
 	);
 }

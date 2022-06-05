@@ -16,6 +16,8 @@ const Login = () => {
 	const submitLogin = () => {
 		if (name === "wael ajabi" && password === "123456789") {
 			navigate("/backOfficeInterface/*");
+		} else if (name === "emna louati" && password === "123456789") {
+			navigate("/frontOfficeInterface/*");
 		} else {
 			setalert(true);
 		}

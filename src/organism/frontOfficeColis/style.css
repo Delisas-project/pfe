@@ -31,4 +31,14 @@
 }
 .bottom {
 	height: 100px;
+	width: -webkit-fill-available;
+	
+}
+.addColisBtn {
+	float: right;
+	background-color: #7367f0;
+	color: #fff;
+	border: none;
+	font-weight: bold;
+	margin-right: 200px;
 }

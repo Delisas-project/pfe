@@ -1,6 +1,6 @@
 import React from "react";
 import AddUserLabel from "../../molecule/addUserLabel";
-import "./style.css"
+import "./style.css";
 
 const FrontOffiiceCréesColis = () => {
 	return (
@@ -48,7 +48,6 @@ const FrontOffiiceCréesColis = () => {
 							id='cars'
 						>
 							<option value='ChoisirRole'>En ligne</option>
-							<option value='En_stock'>En stock</option>
 							<option value='En_cours_de_livraison'>
 								A la livraison
 							</option>
@@ -116,10 +115,20 @@ const FrontOffiiceCréesColis = () => {
 				<div className='flexStart'>
 					<div className='flexColStart'>
 						<label>Remarque(facultatif)</label>
-						<textarea name='' id='' cols='30' rows='10' className="thirdRow"></textarea>
+						<textarea
+							name=''
+							id=''
+							cols='30'
+							rows='10'
+							className='thirdRow'
+						></textarea>
 					</div>
 				</div>
-                <div className="bottom"></div>
+				<div className='bottom flexEnd'>
+					<button type='submit' className='AddBtn addColisBtn'>
+						Ajouter Colis
+					</button>
+				</div>
 			</div>
 		</div>
 	);

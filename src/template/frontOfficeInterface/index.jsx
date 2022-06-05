@@ -9,6 +9,7 @@ import ColisManager from "../../organism/coliesManager";
 import RunSheetManager from "../../organism/runSheetManager";
 import HubManager from "../../organism/HubManager";
 import FrontOffiiceCréesColis from "../../organism/frontOfficeColis";
+import Profile from "../../organism/profile";
 
 function FrontOfficeInterface() {
 	return (
@@ -27,8 +28,19 @@ function FrontOfficeInterface() {
 							element={<FrontOffiiceCréesColis />}
 						></Route>
 						<Route
-							path='/gestionhub'
-							element={<HubManager />}
+							path='/fournisseurProfile'
+							element={
+								<Profile
+									name={"Emna louati"}
+									email={"emnalouati@gmail.com"}
+									id={"emna1245"}
+									phone={"25136485"}
+									role={"fournisseur"}
+									imgSrc={
+										"https://www.nicepng.com/png/full/182-1829287_cammy-lin-ux-designer-circle-picture-profile-girl.png"
+									}
+								/>
+							}
 						></Route>
 					</Routes>
 				</div>

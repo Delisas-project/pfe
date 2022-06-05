@@ -23,8 +23,6 @@ function App() {
 					</Routes>
 				</BrowserRouter>
 			</React.StrictMode>
-			{/* <Login /> */}
-			{/* <BackOfficeInterface /> */}
 		</div>
 	);
 }

@@ -3,13 +3,10 @@ import "./style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SideBarFrontOffice from "../../organism/frontOfficeSideBare";
 import Navbar from "../../organism/navbar";
-import UsersManager from "../../organism/usersManager";
-import FournisseurManager from "../../organism/fournisseurManager";
 import ColisManager from "../../organism/coliesManager";
-import RunSheetManager from "../../organism/runSheetManager";
-import HubManager from "../../organism/HubManager";
 import FrontOffiiceCréesColis from "../../organism/frontOfficeColis";
 import Profile from "../../organism/profile";
+import Dashboard from "../../organism/dashboard";
 
 function FrontOfficeInterface() {
 	return (
@@ -26,6 +23,10 @@ function FrontOfficeInterface() {
 						<Route
 							path='/ajouterColis'
 							element={<FrontOffiiceCréesColis />}
+						></Route>
+						<Route
+							path='/dashboard'
+							element={<Dashboard />}
 						></Route>
 						<Route
 							path='/fournisseurProfile'

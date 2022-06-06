@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
+import Icon from "../../atome/icon";
 
 const AlertWrong = () => {
 	return <div className='alert'>Wrong informations try again !</div>;
 };
 
-const Login = () => {
+const SignUp = () => {
 	const [name, setname] = useState("");
 	const [password, setpassword] = useState("");
 	const [remember, setremember] = useState(false);
@@ -15,9 +16,9 @@ const Login = () => {
 
 	const submitLogin = () => {
 		if (name === "wael ajabi" && password === "123456789") {
-			navigate("/backOfficeInterface/dashboard");
+			navigate("/backOfficeInterface/*");
 		} else if (name === "emna louati" && password === "123456789") {
-			navigate("/frontOfficeInterface/dashboard");
+			navigate("/frontOfficeInterface/*");
 		} else {
 			setalert(true);
 		}
@@ -31,8 +32,18 @@ const Login = () => {
 				className='leftSection'
 			/>
 			<div className='rightSection flexCol'>
+				<div
+					className='flexEnd backtologin'
+					onClick={() => navigate("/")}
+				>
+					<Icon
+						path={"M10 19l-7-7m0 0l7-7m-7 7h18"}
+						fill={"#7367f0"}
+					/>
+					<div>Login</div>
+				</div>
 				<p className='welcomLabel'>Welcome to Delisas! 👋</p>
-				<span>Please sign in to your account</span>
+				<span>Please creat your account</span>
 				<div className='flexColStart'>
 					<label className='labelAdd'>User name</label>
 					<input
@@ -42,42 +53,37 @@ const Login = () => {
 					/>
 				</div>
 				<div className='flexColStart'>
-					<div className='passwordLabel'>
-						<label className='labelAdd'>Password</label>
-						<label className='labelAdd colored'>
-							Forgot password?
-						</label>
-					</div>
+					<label className='labelAdd'>Email</label>
+					<input
+						className='inputAdd'
+						type='text'
+						onChange={(e) => setname(e.target.value)}
+					/>
+				</div>
+				<div className='flexColStart'>
+					<label className='labelAdd'>Password</label>
 					<input
 						className='inputAdd'
 						type='password'
 						onChange={(e) => setpassword(e.target.value)}
 					/>
 				</div>
-				<div className='flex'>
+				<div className='flexColStart'>
+					<label className='labelAdd'>Confirme Password</label>
 					<input
-						className='rememberMeBox'
-						type='checkbox'
-						onChange={(e) => setremember(e.target.value)}
+						className='inputAdd'
+						type='password'
+						onChange={(e) => setpassword(e.target.value)}
 					/>
-					<label className='labelAdd'>Remember Me</label>
 				</div>
+
 				<button
 					type='submit'
 					className='signInBtn'
 					onClick={submitLogin}
 				>
-					Sign in
+					Submit
 				</button>
-				<p>
-					New on our platform?{" "}
-					<span
-						className='colored'
-						onClick={() => navigate("/signup")}
-					>
-						Creat an account
-					</span>
-				</p>
 				<div className='line flex'>
 					<span></span>
 					or
@@ -115,4 +121,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default SignUp;

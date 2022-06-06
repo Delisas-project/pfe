@@ -9,6 +9,8 @@ import ColisManager from "../../organism/coliesManager";
 import RunSheetManager from "../../organism/runSheetManager";
 import HubManager from "../../organism/HubManager";
 import Profile from "../../organism/profile";
+import Dashboard from "../../organism/dashboard";
+
 function BackOfficeInterface() {
 	return (
 		<>
@@ -31,6 +33,10 @@ function BackOfficeInterface() {
 									}
 								/>
 							}
+						></Route>
+						<Route
+							path='/dashboard'
+							element={<Dashboard />}
 						></Route>
 						<Route
 							path='/gestionPersonnel'

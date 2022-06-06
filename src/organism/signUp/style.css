@@ -30,7 +30,6 @@
 }
 .colored {
 	color: #7367f0;
-	cursor: pointer;
 }
 span.colored {
 	font-weight: bold;
@@ -47,4 +46,16 @@ span.colored {
 .alert {
 	font-weight: bold;
 	color: rgb(234, 105, 105);
+}
+.backtologin {
+	font-weight: bold;
+	font-size: 15pt;
+	color: #7367f0;
+	column-gap: 10px;
+	width: 300px;
+	cursor: pointer;
+}
+.backtologin svg {
+	width: 20px;
+	height: 20px;
 }

@@ -1,12 +1,6 @@
 import React from "react";
 import "./style.css";
-import Text from "../../atome/text";
 import Icon from "../../atome/icon";
-
-//  hub_id: Number,
-// titre_hub: String,
-// adresse: String,
-// gouvernorat: String,
 
 function HubTabData({
   data,

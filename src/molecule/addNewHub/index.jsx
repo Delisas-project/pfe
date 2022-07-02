@@ -10,11 +10,7 @@ function AddNewHub({ setshowAddModel, data }) {
 	const [gouvernorat, setgouvernorat] = useState("");
 
 	const addUser = () => {
-		//  hub_id: Number,
-		// titre_hub: String,
-		// adresse: String,
-		// gouvernorat: String,
-
+		
 		let colis = {
 			hub_id: hub_id,
 			titre_hub: titre_hub,

@@ -2,58 +2,64 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
+import Icon from "../../atome/icon";
 
 const AlertWrong = () => {
-  return <div className="alert">Informations Incorrectes</div>;
+  return <div className="alert">Wrong informations try again !</div>;
 };
 
-const Login = () => {
+const SignUp = () => {
   const [name, setname] = useState("");
+  const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [confirmePass, setconfirmePass] = useState("");
   const [role, setrole] = useState("");
   const [alert, setalert] = useState(false);
 
   const navigate = useNavigate();
 
+  // const submitLogin = () => {
+  //   if (name === "wael ajabi" && password === "123456789") {
+  //     navigate("/backOfficeInterface/*");
+  //   } else if (name === "emna louati" && password === "123456789") {
+  //     navigate("/frontOfficeInterface/*");
+  //   } else {
+  //     setalert(true);
+  //   }
+  // };
+
   const handleChange = (e) => {
     setrole(e.target.value);
   };
 
-  //   const submitLogin = () => {
-  //     if (name === "wael ajabi" && password === "123456789") {
-  //       navigate("/backOfficeInterface/dashboard");
-  //     } else if (name === "emna louati" && password === "123456789") {
-  //       navigate("/frontOfficeInterface/dashboard");
-  //     } else {
-  //       setalert(true);
-  //     }
-  // 	};
+  const signUp = () => {
+    var user = {
+      name: name,
+      email: email,
+      password: password,
+      confirmePass: confirmePass,
+    };
+    console.log(user);
 
-  const logIn = () => {
-    axios.get("http://localhost:5000/api/usersAdmin/findAll").then((res) => {
-      console.log(res.data);
-      res.data.map((ele) => {
-        if (ele.name == name && ele.password == password && role === "true") {
-          navigate("/backOfficeInterface/dashboard");
-        } else setalert(true);
-      });
-    });
-
-    axios
-      .get("http://localhost:5000/api/usersFournis/findAll")
-      .then((res) => {
-        console.log(res.data);
-        res.data.map((ele) => {
-          if (
-            ele.name == name &&
-            ele.password == password &&
-            role === "false"
-          ) {
-            navigate("/frontOfficeInterface/dashboard");
-          } else setalert(true);
-        });
-      })
-      .catch((err) => console.log(err));
+    if (role === "true") {
+      axios
+        .post("http://localhost:5000/api/usersFournis/add", user)
+        .then((res) => {
+          // setsignUpUser(res.data);
+          console.log(res.data);
+          console.log("Fournisseur added successfully !");
+        })
+        .catch((err) => console.log(err));
+    } else if (role === "false") {
+      axios
+        .post("http://localhost:5000/api/usersAdmin/add", user)
+        .then((res) => {
+          // setsignUpUser(res.data);
+          console.log(res.data);
+          console.log("administrateur added successfully !");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
@@ -64,8 +70,12 @@ const Login = () => {
         className="leftSection"
       />
       <div className="rightSection flexCol">
+        <div className="flexEnd backtologin" onClick={() => navigate("/")}>
+          <Icon path={"M10 19l-7-7m0 0l7-7m-7 7h18"} fill={"#7367f0"} />
+          <div>Login</div>
+        </div>
         <p className="welcomLabel">Bienvenue dans Delisas! 👋</p>
-        <span>Connectez vous a votre compte</span>
+        <span>Faire Un Compte</span>
         <div className="flexColStart">
           <label className="labelAdd">Nom d'utilisateur</label>
           <input
@@ -75,16 +85,30 @@ const Login = () => {
           />
         </div>
         <div className="flexColStart">
-          <div className="passwordLabel">
-            <label className="labelAdd">Mot De Passe</label>
-            <label className="labelAdd colored">Mot De Passe Oublié ?</label>
-          </div>
+          <label className="labelAdd">Email</label>
+          <input
+            className="inputAdd"
+            type="text"
+            onChange={(e) => setemail(e.target.value)}
+          />
+        </div>
+        <div className="flexColStart">
+          <label className="labelAdd">Mot de passe</label>
           <input
             className="inputAdd"
             type="password"
             onChange={(e) => setpassword(e.target.value)}
           />
         </div>
+        <div className="flexColStart">
+          <label className="labelAdd">Confirmer Mot de passe</label>
+          <input
+            className="inputAdd"
+            type="password"
+            onChange={(e) => setconfirmePass(e.target.value)}
+          />
+        </div>
+
         <div className="parent">
           <div>
             <input
@@ -105,15 +129,10 @@ const Login = () => {
             <label className="radio">Administrateur</label>
           </div>
         </div>
-        <button type="submit" className="signInBtn" onClick={logIn}>
-          Sign in
+
+        <button type="submit" className="signInBtn" onClick={signUp}>
+          Confirmer
         </button>
-        <p>
-          Nouveaux dans notre platform?{" "}
-          <span className="colored" onClick={() => navigate("/signup")}>
-            Faire un compte
-          </span>
-        </p>
         <div className="line flex">
           <span></span>
           or
@@ -139,4 +158,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

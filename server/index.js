@@ -27,12 +27,16 @@ const gestionFournisseur = require("./routers/gestionFournisseur");
 const gestionColis = require("./routers/gestionColis");
 const gestionRunsheet = require("./routers/gestionRunsheet");
 const gestionHub = require("./routers/gestionHub");
+const usersAdmin = require("./routers/usersAdmin");
+const usersFournis = require("./routers/usersFournis");
 
 app.use("/api/gestionPersonnel", gestionPersonnel);
 app.use("/api/gestionFournisseur", gestionFournisseur);
 app.use("/api/gestionColis", gestionColis);
 app.use("/api/gestionRunsheet", gestionRunsheet);
 app.use("/api/gestionHub", gestionHub);
+app.use("/api/usersAdmin", usersAdmin);
+app.use("/api/usersFournis", usersFournis);
 
 app.listen(port, () => {
   console.log(`listening on port http://127.0.0.1:${port} !`);

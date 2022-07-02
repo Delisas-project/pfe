@@ -4,6 +4,7 @@ import BackOfficeInterface from "./template/backOfficeInterface";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Login from "./organism/login";
 import FrontOfficeInterface from "./template/frontOfficeInterface";
+import SignUp from "./organism/signUp";
 
 function App() {
 	return (
@@ -12,6 +13,7 @@ function App() {
 				<BrowserRouter>
 					<Routes>
 						<Route path='/' element={<Login />}></Route>
+						<Route path='/signup' element={<SignUp />}></Route>
 						<Route
 							path='/backOfficeInterface/*'
 							element={<BackOfficeInterface />}

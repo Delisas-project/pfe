@@ -9,6 +9,8 @@ import ColisManager from "../../organism/coliesManager";
 import RunSheetManager from "../../organism/runSheetManager";
 import HubManager from "../../organism/HubManager";
 import Profile from "../../organism/profile";
+import Dashboard from "../../organism/dashboard";
+
 function BackOfficeInterface() {
   return (
     <>
@@ -27,11 +29,12 @@ function BackOfficeInterface() {
                   phone={"22564896"}
                   role={"Administrateur"}
                   imgSrc={
-                    "https://scontent.ftun10-1.fna.fbcdn.net/v/t39.30808-6/271859266_1982027125312688_4156598321716349538_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=QSQuNNktYwIAX8GtRgC&tn=NoWHxNPozIzb57NI&_nc_ht=scontent.ftun10-1.fna&oh=00_AT-VDwHl5a8kl3vK1OsIeTXdTXjrav6sf5xaIfKlupeFPw&oe=62A1F512"
+                    "https://cdn.discordapp.com/attachments/902189923380121670/992226128062328953/lilouet.jpg"
                   }
                 />
               }
             ></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/gestionPersonnel" element={<UsersManager />}></Route>
             <Route
               path="/gestionfournisseurs"

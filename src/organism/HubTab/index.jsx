@@ -3,7 +3,6 @@ import axios from "axios";
 import "./style.css";
 import TableHead from "../../atome/tableHead";
 import DeleteModel from "../../molecule/deleteModel";
-import UpdateUser from "../../molecule/updateUser";
 import HubTabData from "../../molecule/HubTabData";
 import UpdateHub from "../../molecule/updateHub";
 
@@ -67,11 +66,6 @@ function HubTabBody() {
         />
       )}
       {updateUserModel && (
-        // <UpdateUser
-        // 	data={usersGesPersonnel}
-        // 	setupdateUserModel={setupdateUserModel}
-        // 	reqData={"Hub"}
-        // />
         <UpdateHub
           data={usersGesPersonnel}
           setupdateUserModel={setupdateUserModel}

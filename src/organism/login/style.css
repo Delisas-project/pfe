@@ -30,6 +30,7 @@
 }
 .colored {
 	color: #7367f0;
+	cursor: pointer;
 }
 span.colored {
 	font-weight: bold;
@@ -43,7 +44,7 @@ span.colored {
 .socialMediaIcons {
 	column-gap: 15px;
 }
-.alert{
+.alert {
 	font-weight: bold;
 	color: rgb(234, 105, 105);
 }

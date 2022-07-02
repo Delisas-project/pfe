@@ -3,7 +3,6 @@ import "./style.css";
 import AddUserLabel from "../../molecule/addUserLabel";
 import GestionPersonnel from "../../molecule/gestionPersonel";
 import ColisTabBody from "../coliesTab";
-import AddNewUser from "../../molecule/addNewUser";
 import AddNewColis from "../../molecule/addNewColis";
 import ColisStat from "../../molecule/colisStat";
 

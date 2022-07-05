@@ -5,6 +5,7 @@ function DeleteModel({ setshowDeleteModel, remove, idRemove }) {
   const deleteAndClose = () => {
     remove(idRemove);
     setshowDeleteModel(false);
+    window.location.reload();
   };
   return (
     <div className="modelBackGround flex">

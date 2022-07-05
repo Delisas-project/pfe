@@ -33,8 +33,8 @@ const Login = () => {
     axios.get("http://localhost:5000/api/usersAdmin/findAll").then((res) => {
       console.log(res.data);
       res.data.map((ele) => {
-        if (ele.name == name && ele.password == password && role === "true") {
-          navigate("/backOfficeInterface/dashboard");
+        if (ele.name == name && ele.password == password && role === "false") {
+          navigate("/frontOfficeInterface/dashboard");
         } else setalert(true);
       });
     });
@@ -47,9 +47,9 @@ const Login = () => {
           if (
             ele.name == name &&
             ele.password == password &&
-            role === "false"
+            role === "true"
           ) {
-            navigate("/frontOfficeInterface/dashboard");
+            navigate("/backOfficeInterface/dashboard");
           } else setalert(true);
         });
       })
